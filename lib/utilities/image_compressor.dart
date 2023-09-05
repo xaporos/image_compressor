@@ -11,12 +11,7 @@ class ImageCompressor {
     return imagesNameList;
   }
 
-  // List<String> getImagePath() {
-  //   List<String> imagesPathList = files.map((e) => e.path).toList();
-  //   return imagesPathList;
-  // }
-
-  compressImage() async {
+  compressImage(String width) async {
     for (int i = 0; i < files.length; i++) {
       String imagePath = files[i].path;
       String imageName = files[i].name;
@@ -26,6 +21,8 @@ class ImageCompressor {
       final cmd = img.Command()
         ..decodeImageFile(imagePath)
         ..encodeJpg(quality: 25)
+        ..copyResize(
+            width: int.parse(width), interpolation: img.Interpolation.nearest)
         ..writeToFile(resizedFilePath);
 
       await cmd.executeThread();

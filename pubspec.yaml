@@ -12,6 +12,7 @@ dependencies:
   image: ^4.0.17
   file_selector: ^1.0.1
   flutter_bloc: ^8.1.3
+  window_manager: ^0.3.6
 
 dev_dependencies:
   flutter_test:
@@ -20,3 +21,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - lib/assets/images/everest.png
+  fonts:
+    - family: Orbitron
+      fonts:
+        - asset: lib/assets/fonts/Orbitron/Orbitron-Regular.ttf
+        - asset: lib/assets/fonts/Orbitron/Orbitron-Medium.ttf
+        - asset: lib/assets/fonts/Orbitron/Orbitron-Bold.ttf
