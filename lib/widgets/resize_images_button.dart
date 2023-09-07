@@ -30,10 +30,8 @@ class ResizeImagesButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        final pathsList = getImages.imagePathList;
-        final namesList = getImages.imageNameList;
-        ImageCompressor(pathsList: pathsList, namesList: namesList)
-            .compressImage('600');
+        final images = getImages.images;
+        ImageCompressor(images: images).compressImage('600');
       },
       child: const Text('Resize'),
     );

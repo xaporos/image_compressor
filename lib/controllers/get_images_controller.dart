@@ -2,8 +2,7 @@ import 'package:file_selector/file_selector.dart';
 import 'package:get/get.dart';
 
 class GetImagesController extends GetxController {
-  RxList<String> imageNameList = <String>[].obs;
-  RxList<String> imagePathList = <String>[].obs;
+  RxList<XFile> images = <XFile>[].obs;
 
   selectImages() async {
     const XTypeGroup jpgsTypeGroup = XTypeGroup(
@@ -19,9 +18,6 @@ class GetImagesController extends GetxController {
       pngTypeGroup,
     ]);
 
-    final nameList = files.map((e) => e.name).toList();
-    final pathList = files.map((e) => e.path).toList();
-    imageNameList.value = nameList;
-    imagePathList.value = pathList;
+    images.value = files;
   }
 }

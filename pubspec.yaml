@@ -13,6 +13,7 @@ dependencies:
   file_selector: ^1.0.1
   get:
   window_manager: ^0.3.6
+  getwidget: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -22,7 +23,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - lib/assets/images/everest.png
+    - lib/assets/images/logo.png
   fonts:
     - family: Orbitron
       fonts:
