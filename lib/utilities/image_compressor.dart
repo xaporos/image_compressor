@@ -1,20 +1,15 @@
-import 'package:file_selector/file_selector.dart';
 import 'package:image/image.dart' as img;
 
 class ImageCompressor {
-  ImageCompressor({required this.files});
+  ImageCompressor({required this.pathsList, required this.namesList});
 
-  List<XFile> files;
-
-  List<String> getImageName() {
-    List<String> imagesNameList = files.map((e) => e.name).toList();
-    return imagesNameList;
-  }
+  final List<String> pathsList;
+  final List<String> namesList;
 
   compressImage(String width) async {
-    for (int i = 0; i < files.length; i++) {
-      String imagePath = files[i].path;
-      String imageName = files[i].name;
+    for (int i = 0; i < pathsList.length; i++) {
+      String imagePath = pathsList[i];
+      String imageName = namesList[i];
       String resizedFilePath =
           imagePath.replaceAll(imageName, '${imageName}_resized.jpg');
 

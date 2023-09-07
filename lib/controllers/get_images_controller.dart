@@ -1,10 +1,11 @@
 import 'package:file_selector/file_selector.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
-class ImagesSelectorCubit extends Cubit<List<XFile>> {
-  ImagesSelectorCubit() : super([]);
+class GetImagesController extends GetxController {
+  RxList<String> imageNameList = <String>[].obs;
+  RxList<String> imagePathList = <String>[].obs;
 
-  void selectImages() async {
+  selectImages() async {
     const XTypeGroup jpgsTypeGroup = XTypeGroup(
       label: 'JPEGs',
       extensions: <String>['jpg', 'JPG', 'jpeg'],
@@ -18,6 +19,9 @@ class ImagesSelectorCubit extends Cubit<List<XFile>> {
       pngTypeGroup,
     ]);
 
-    emit(files);
+    final nameList = files.map((e) => e.name).toList();
+    final pathList = files.map((e) => e.path).toList();
+    imageNameList.value = nameList;
+    imagePathList.value = pathList;
   }
 }
