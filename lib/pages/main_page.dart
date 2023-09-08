@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_compressor/controllers/get_images_controller.dart';
 import 'package:image_compressor/widgets/add_images_button.dart';
-import 'package:image_compressor/widgets/list_of_images.dart';
-import 'package:image_compressor/widgets/resize_images_button.dart';
+import 'package:image_compressor/widgets/images_list_view.dart';
+import 'package:image_compressor/widgets/resize_button.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -19,7 +19,7 @@ class MainPage extends StatelessWidget {
         children: [
           Obx(
             () => getImages.images.isNotEmpty
-                ? ListOfImages(
+                ? ImagesListView(
                     images: getImages.images,
                   )
                 : const Image(
@@ -36,7 +36,7 @@ class MainPage extends StatelessWidget {
         children: [
           Obx(
             () => getImages.images.isNotEmpty
-                ? const ResizeImagesButton()
+                ? const ResizeButton()
                 : const SizedBox(),
           ),
           const SizedBox(

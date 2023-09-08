@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 
-class ListOfImages extends StatelessWidget {
-  const ListOfImages({required this.images, super.key});
+class ImagesListView extends StatelessWidget {
+  const ImagesListView({required this.images, super.key});
 
   final RxList<XFile> images;
 
