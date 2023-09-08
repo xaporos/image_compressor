@@ -16,7 +16,6 @@ class MainPage extends StatelessWidget {
       backgroundColor: Colors.grey[200],
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Obx(
             () => getImages.images.isNotEmpty

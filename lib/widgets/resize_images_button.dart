@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_compressor/controllers/get_images_controller.dart';
 import 'package:image_compressor/utilities/image_compressor.dart';
+import 'package:image_compressor/widgets/custom_slider.dart';
 
 class ResizeImagesButton extends StatelessWidget {
   const ResizeImagesButton({super.key});
@@ -30,8 +31,31 @@ class ResizeImagesButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        final images = getImages.images;
-        ImageCompressor(images: images).compressImage('600');
+        showModalBottomSheet(
+          context: context,
+          builder: ((context) {
+            return Container(
+              height: 300,
+              color: Colors.grey[200],
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Parameters'),
+                    const CustomSlider(),
+                    ElevatedButton(
+                      child: const Text('Apply'),
+                      onPressed: () {
+                        final images = getImages.images;
+                        ImageCompressor(images: images).compressImage('600');
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }),
+        );
       },
       child: const Text('Resize'),
     );
