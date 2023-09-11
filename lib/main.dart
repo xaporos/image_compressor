@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:image_compressor/pages/main_page.dart';
 import 'package:window_manager/window_manager.dart';
@@ -19,7 +20,8 @@ void main() async {
     await windowManager.focus();
   });
 
-  runApp(const GetMaterialApp(
-    home: MainPage(),
+  runApp(GetMaterialApp(
+    home: const MainPage(),
+    builder: EasyLoading.init(),
   ));
 }

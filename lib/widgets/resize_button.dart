@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_compressor/controllers/dropdown_controller.dart';
 import 'package:image_compressor/controllers/get_images_controller.dart';
+import 'package:image_compressor/controllers/slider_controller.dart';
 import 'package:image_compressor/utilities/image_compressor.dart';
 import 'package:image_compressor/widgets/quality_slider.dart';
 import 'package:image_compressor/widgets/size_dropdown.dart';
@@ -11,12 +13,12 @@ class ResizeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final getImages = Get.put(GetImagesController());
+    final getSliderValue = Get.put(SliderController());
+    final getDropdownValue = Get.put(DropdownController());
 
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
-        side: const BorderSide(color: Colors.blueAccent, width: 0.3),
-        // primary: Colors.blue,
-        // onSurface: Colors.amber,
+        side: const BorderSide(color: Colors.blue, width: 1),
         textStyle: const TextStyle(
           fontFamily: "Orbitron",
           fontSize: 18,
@@ -98,8 +100,12 @@ class ResizeButton extends StatelessWidget {
                             ),
                             onPressed: () {
                               final images = getImages.images;
-                              ImageCompressor(images: images)
-                                  .compressImage('600');
+                              Navigator.of(context).pop();
+                              // Get.to(const MainPage());
+
+                              ImageCompressor(images: images).compressImage(
+                                  getSliderValue.range.value.toInt(),
+                                  getDropdownValue.imageSize.value);
                             },
                           ),
                         ],

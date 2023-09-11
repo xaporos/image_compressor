@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_compressor/controllers/get_images_controller.dart';
@@ -13,23 +15,35 @@ class MainPage extends StatelessWidget {
     final getImages = Get.put(GetImagesController());
 
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Obx(
-            () => getImages.images.isNotEmpty
-                ? ImagesListView(
-                    images: getImages.images,
-                  )
-                : const Image(
-                    image: AssetImage('lib/assets/images/logo.png'),
-                  ),
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: RadialGradient(
+            center: Alignment(0.0, 0.0),
+            radius: 1.2,
+            colors: [
+              Color.fromARGB(255, 232, 232, 232),
+              Color.fromARGB(255, 191, 191, 191),
+            ],
           ),
-          const SizedBox(
-            height: 20,
-          ),
-        ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Obx(
+              () => getImages.images.isNotEmpty
+                  ? ImagesListView(
+                      images: getImages.images,
+                    )
+                  : const Image(
+                      image: AssetImage('lib/assets/images/logo.png'),
+                    ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
+        ),
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
