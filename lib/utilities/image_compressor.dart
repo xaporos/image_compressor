@@ -24,8 +24,6 @@ class ImageCompressor {
     final int numImages = images.length;
     // EasyLoading.show(status: 'Processing...');
 
-    print(images.length);
-
     switch (size) {
       case 'Original':
         imageSizeFactor = 1;

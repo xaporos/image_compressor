@@ -41,7 +41,7 @@ class ResizeButton extends StatelessWidget {
               height: 230,
               color: Colors.grey[200],
               child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(12),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -49,10 +49,10 @@ class ResizeButton extends StatelessWidget {
                       child: Row(
                         children: [
                           Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(4.0),
                             child: Text(
                               'Image Size:',
-                              textScaleFactor: 1.2,
+                              textScaler: TextScaler.linear(1.2),
                               textAlign: TextAlign.start,
                               style: TextStyle(fontFamily: 'Orbitron'),
                             ),
@@ -71,7 +71,7 @@ class ResizeButton extends StatelessWidget {
                             padding: EdgeInsets.all(8.0),
                             child: Text(
                               'Image Quality:',
-                              textScaleFactor: 1.2,
+                              textScaler: TextScaler.linear(1.2),
                               textAlign: TextAlign.start,
                               style: TextStyle(fontFamily: 'Orbitron'),
                             ),
@@ -94,7 +94,7 @@ class ResizeButton extends StatelessWidget {
                               padding: EdgeInsets.all(8.0),
                               child: Text(
                                 'Apply',
-                                textScaleFactor: 1.2,
+                                textScaler: TextScaler.linear(1.2),
                                 style: TextStyle(fontFamily: 'Orbitron'),
                               ),
                             ),

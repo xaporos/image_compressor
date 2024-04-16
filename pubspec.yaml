@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   image: ^4.0.17
-  file_selector: ^1.0.1
+  file_selector: ^1.0.3
   get:
   window_manager: ^0.3.6
   getwidget: ^4.0.0
