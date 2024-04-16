@@ -1,5 +1,5 @@
 name: image_compressor
-description: A new Flutter project.
+description: Simple image resizer for jpg, jpeg and png files
 publish_to: "none"
 version: 0.1.0
 
